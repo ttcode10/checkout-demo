@@ -9,17 +9,20 @@ describe('Pricing Rules', () => {
   beforeAll(() => {
     catalogue['atv'] = atvProduct;
     catalogue['ipd'] = ipdProduct;
-    marketingCampaigns['ipd'] = { pricingRule: 'RANDOM-RULE-NAME', discountPrice: 180 };
+    marketingCampaigns['ipd'] = {
+      pricingRule: 'RANDOM-RULE-NAME',
+      discountPrice: 180,
+    };
   });
 
   describe('Buy 3 pay 2 (atv)', () => {
-    const rule: PricingRule = pricingRules.find(rule => rule.sku === 'atv');
+    const rule: PricingRule = pricingRules.find((rule) => rule.sku === 'atv');
 
     it('should apply buy 3 pay 2 discount', () => {
       const cartItems: Product[] = [
         { sku: 'atv', name: 'Apple TV', price: 100 },
         { sku: 'atv', name: 'Apple TV', price: 100 },
-        { sku: 'atv', name: 'Apple TV', price: 100 }
+        { sku: 'atv', name: 'Apple TV', price: 100 },
       ];
       const discount = rule.deduct(cartItems);
       expect(discount).toBe(100);
@@ -28,7 +31,7 @@ describe('Pricing Rules', () => {
     it('should not apply discount for less than 3 items', () => {
       const cartItems: Product[] = [
         { sku: 'atv', name: 'Apple TV', price: 100 },
-        { sku: 'atv', name: 'Apple TV', price: 100 }
+        { sku: 'atv', name: 'Apple TV', price: 100 },
       ];
       const discount = rule.deduct(cartItems);
       expect(discount).toBe(0);
@@ -39,7 +42,7 @@ describe('Pricing Rules', () => {
         { sku: 'atv', name: 'Apple TV', price: 100 },
         { sku: 'atv', name: 'Apple TV', price: 100 },
         { sku: 'atv', name: 'Apple TV', price: 100 },
-        { sku: 'atv', name: 'Apple TV', price: 100 }
+        { sku: 'atv', name: 'Apple TV', price: 100 },
       ];
       const discount = rule.deduct(cartItems);
       expect(discount).toBe(100);
@@ -47,7 +50,7 @@ describe('Pricing Rules', () => {
   });
 
   describe('Bulk discount (ipd)', () => {
-    const rule: PricingRule = pricingRules.find(rule => rule.sku === 'ipd');
+    const rule: PricingRule = pricingRules.find((rule) => rule.sku === 'ipd');
 
     it('should apply bulk discount for more than 4 items', () => {
       const cartItems: Product[] = [
@@ -55,7 +58,7 @@ describe('Pricing Rules', () => {
         { sku: 'ipd', name: 'iPad', price: 200 },
         { sku: 'ipd', name: 'iPad', price: 200 },
         { sku: 'ipd', name: 'iPad', price: 200 },
-        { sku: 'ipd', name: 'iPad', price: 200 }
+        { sku: 'ipd', name: 'iPad', price: 200 },
       ];
       const discount = rule.deduct(cartItems);
       expect(discount).toBe(100); // 200 - 180 = 20 discount per item, 5 items = 100 total discount
@@ -66,7 +69,7 @@ describe('Pricing Rules', () => {
         { sku: 'ipd', name: 'iPad', price: 200 },
         { sku: 'ipd', name: 'iPad', price: 200 },
         { sku: 'ipd', name: 'iPad', price: 200 },
-        { sku: 'ipd', name: 'iPad', price: 200 }
+        { sku: 'ipd', name: 'iPad', price: 200 },
       ];
       const discount = rule.deduct(cartItems);
       expect(discount).toBe(0);
