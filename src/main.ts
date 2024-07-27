@@ -37,7 +37,7 @@ const output = (inputs) => {
   inputs.map((item) => {
     co.scan(item);
   });
-  console.log(`Input: ${inputs}, Total expected: $${co.total()}`);
+  console.log(`Input: ${inputs} | Total: $${co.total()}`);
   co.clear();
 };
 
