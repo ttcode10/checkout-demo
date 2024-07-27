@@ -22,4 +22,3 @@ All files               |     100 |      100 |     100 |     100 |
   marketingCampaigns.ts |     100 |      100 |     100 |     100 |                   
  src/libs               |     100 |      100 |     100 |     100 |                   
   pricingRules.ts       |     100 |      100 |     100 |     100 |                   
-
