@@ -1,5 +1,6 @@
 # Checkout Demo
 
+
 ## Getting Started
 
 - `npm install` - install all dependencies
@@ -10,6 +11,7 @@
 - `npm run prettier` - reformat files
 - `npm run test` - run tests
 - `npm run test:watch` - interactive watch mode to automatically re-run tests
+
 
 ## Test Coverage
 
@@ -24,6 +26,7 @@
 | src/libs              | 100     | 100      | 100     | 100     |
 | pricingRules.ts       | 100     | 100      | 100     | 100     |
 
+
 ## Architecture
 
 ![architecture](./architecture.jpg?raw=true)
@@ -34,3 +37,9 @@
     - `/marketingCampaigns.ts` - the central place defines all product promotion, maintained by sales department
 - `/lib` 
   - `/pricingRules.ts` - it configures the pricing rules, read parameters from `marketingCampaigns.ts`
+
+
+## Results
+
+![results](./results.png?raw=true)
+Simply change the output parameter in `main.ts` to see the results.
