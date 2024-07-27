@@ -1,4 +1,4 @@
-# Project Name
+# Checkout Demo
 
 ## Getting Started
 
@@ -30,7 +30,7 @@
 
 - `main.ts` - the engine to init the project
 - `/business`
-   - `/catalogue.ts` - the central place defining all products, maintained by procurement department
-    - `/marketingCampaigns.ts` - the central place defining all product promotion, maintained by sales department
+   - `/catalogue.ts` - the central place defines all products, maintained by procurement department
+    - `/marketingCampaigns.ts` - the central place defines all product promotion, maintained by sales department
 - `/lib` 
   - `/pricingRules.ts` - it configures the pricing rules, read parameters from `marketingCampaigns.ts`
